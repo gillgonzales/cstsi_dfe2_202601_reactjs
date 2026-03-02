@@ -1,41 +1,49 @@
-import chalk from 'chalk';
+import { exemploFilter, exemploFind, exemploForeach, exemploMap, exemploReduce } from "./modules/exemploArrayIterations.js";
+import { ordenaArray } from "./modules/exemploArraysFun.js";
+import pot, { Person, Person2, Person3, pow, pow2 } from "./modules/exemploFuncArrowFun.js";
+import exemplosStrings from "./modules/exemploStrings.js";
+import { exemplosConst, exemplosLet } from "./modules/letConstExemplos.js";
+import numberBigInt from "./modules/numTypes.js"
 
-console.log(chalk.green('Exemplo Var, Let Const e Escopos'));
 
-console.log(chalk.red('Exemplos Let'));
-var pi = 3.14;
-// var pi = 3; //Descomente para ver o erro
-pi = 0.14; // Erro de redeclaração da variável pi
-console.log(pi);
+// exemplosLet()
+// exemplosConst()
+// numberBigInt()
+// exemplosStrings()
 
-console.log(chalk.blue('Exemplos Escopo de Bloco'));
-//escopo de bloco
-if (true) {
-  let pi = 0;
-  //imprime o valor de pi do bloco
-  pi = 3.1415;
-  if (true) {
-    let pi = 4;
-    console.log(pi); //4
-  }
-  console.log(pi); //3.1415
-}
-//imprime o valor de pi do inicio do programa
-console.log(pi); //0.14
+// console.log(pot(2,2))
+// console.log(pow(2,3))
+// console.log(pow2(3))
 
-//uso comum para let iteradores
-for (let c of 'abcde') {
-  console.log(c);
-}
-// console.log(c);
-console.clear();
+// let p1 = new Person()
 
-console.log(chalk.yellow('Exemplos const de Bloco'));
+// setTimeout(()=>{
+//     console.log(p1.age)
+//     // process.exit()
+// },5000);
 
-//tabuada do 5
-const n = 5;
-for (let i = 1; i <= 10; i++) console.log(`${i}X${n}=${i * n}`);
-console.log(i);
-process.exit();
-//observe que i não é mais acessível fora do FOR
-//console.log(i)//Descomente para ver o erro
+// let p2 = new Person2()
+
+// setTimeout(()=>{
+//     console.log(p2.age)
+//     // process.exit()
+// },5000);
+
+// let p3 = new Person3()
+
+// setTimeout(()=>{
+//     console.log(p3.age)
+//     process.exit()
+// },7000);
+
+// ordenaArray()
+
+// exemploForeach()
+
+// exemploFind()
+
+// exemploFilter()
+
+// exemploMap()
+
+exemploReduce()
