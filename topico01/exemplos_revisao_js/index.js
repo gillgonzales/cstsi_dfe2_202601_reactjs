@@ -3,6 +3,7 @@ import { ordenaArray } from "./modules/exemploArraysFun.js";
 import pot, { Person, Person2, Person3, pow, pow2 } from "./modules/exemploFuncArrowFun.js";
 import exemplosStrings from "./modules/exemploStrings.js";
 import { exemplosConst, exemplosLet } from "./modules/letConstExemplos.js";
+import { listProducts } from "./modules/listProducts.js";
 import numberBigInt from "./modules/numTypes.js"
 
 
@@ -46,4 +47,6 @@ import numberBigInt from "./modules/numTypes.js"
 
 // exemploMap()
 
-exemploReduce()
+// exemploReduce()
+
+listProducts()
