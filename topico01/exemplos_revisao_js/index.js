@@ -1,6 +1,7 @@
+import chalk from "chalk";
 import { exemploFilter, exemploFind, exemploForeach, exemploMap, exemploReduce } from "./modules/exemploArrayIterations.js";
 import { ordenaArray } from "./modules/exemploArraysFun.js";
-import pot, { Person, Person2, Person3, pow, pow2 } from "./modules/exemploFuncArrowFun.js";
+import potencia, { Person, Person2, Person3, pow, pow2 } from "./modules/exemploFuncArrowFun.js";
 import exemplosStrings from "./modules/exemploStrings.js";
 import { exemplosConst, exemplosLet } from "./modules/letConstExemplos.js";
 import { listProducts } from "./modules/listProducts.js";
@@ -49,4 +50,6 @@ import numberBigInt from "./modules/numTypes.js"
 
 // exemploReduce()
 
-listProducts()
+// listProducts()
+
+console.log(chalk.blue(potencia(3,3)));
