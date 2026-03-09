@@ -1,0 +1,10 @@
+
+.library-item{
+  background-color: #242424;
+}
+
+@media (prefers-color-scheme: light) {
+  .library-item{
+    background-color: lightgray;
+  }
+}

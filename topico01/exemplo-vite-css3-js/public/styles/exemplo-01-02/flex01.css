@@ -1,0 +1,33 @@
+#library {
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.library-item {
+    display: flex;
+    flex-flow: column;
+}
+
+.library-item>button {
+    margin-top: auto;
+}
+
+article {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+    width: 250px;
+    text-align: center;
+}
+
+section {
+    background-color: rgb(224, 221, 221);
+}
+
+button{background-color: black;border-radius: 20px;color:white;}
+.refs{position:relative; margin-left:auto;padding-right:10%;text-align:right;width: 50%;font:normal 10px verdana, sans-serif;}
