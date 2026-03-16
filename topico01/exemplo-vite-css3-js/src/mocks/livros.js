@@ -5,7 +5,7 @@ export const livros = [
         image: 'oz.jpg'
     },
     {
-        titulo:'Livro 2',
+        titulo:'Livro Dois',
         autor:'by L. Frank Baum',
         image: 'huck.jpg'
     },
@@ -13,6 +13,16 @@ export const livros = [
         titulo:'Livro 3',
         autor:'by L. Frank Baum',
         image: 'pandp.jpg'
+    },
+    {
+        titulo:'Livro 4',
+        autor:'by L. Frank Baum',
+        image: 'pandp.jpg'
+    },
+    {
+        titulo:'Livro 5',
+        autor:'by L. Frank Baum',
+        image: 'oz.jpg'
     }
     
 ]
