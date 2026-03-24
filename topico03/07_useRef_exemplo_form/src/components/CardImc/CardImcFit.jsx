@@ -26,9 +26,11 @@ export default function CardImc({ pessoa }) {
     console.log('useEffect -> Ref:',inputEsportesRef.current);
     let timer = setTimeout(() => setPeso(peso=>{
       let novoPeso = peso + (!isAtleta?1:-1)
-      setImc(calcImc(novoPeso, alt))
+      let novoImc = calcImc(novoPeso, alt)
+      if( novoImc <= 18.5) return peso //Não decrementa se já estiver no imc mínimo
+      setImc(novoImc)
       return novoPeso;
-    }), 3000);
+    }), 100);
     return ()=>clearTimeout(timer) //limpa o timer quando o componente é desmontado ou quando o efeito é re-executado
   }, [peso]);
 
@@ -44,7 +46,7 @@ export default function CardImc({ pessoa }) {
    const incrementaPeso = () => {
     setPeso((peso_atual) => {
       let novo_peso = peso_atual + 1;
-      setImc(novo_peso / alt ** 2);
+      setImc(calcImc(novo_peso,alt));
       return novo_peso;
     });
   };
@@ -52,7 +54,7 @@ export default function CardImc({ pessoa }) {
   const decrementaPeso = () => {
     setPeso((peso) => {
       let novo_peso = peso - 1;
-      setImc(novo_peso / alt ** 2);
+      setImc(calcImc(novo_peso,alt));
       return novo_peso;
     });
   }
