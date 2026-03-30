@@ -25,7 +25,7 @@ export default function FormCadastraPessoaState({ setPessoa, disabledButton }) {
     <div>
       <form>
         <label>Nome:</label>
-        <input
+        <input 
           onChange={(e) => setInputName(e.target.value)}
           type='text'
           name='nome'
