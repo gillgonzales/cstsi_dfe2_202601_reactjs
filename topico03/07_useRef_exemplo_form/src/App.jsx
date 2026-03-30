@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import CardImc from './components/CardImc/CardImcFit';
-import FormCadastraPessoa from './components/FormCadastraPessoaState';
+import FormCadastraPessoa from './components/FormCadastraPessoa';
 
 function App() {
 
@@ -9,7 +9,8 @@ function App() {
 
   return (
     <>
-      {!pessoa && <FormCadastraPessoa setPessoa={setPessoa} disabledButton={pessoa}/>}
+      {/* {!pessoa && <FormCadastraPessoa setPessoa={setPessoa} disabledButton={pessoa}/>} */}
+      <FormCadastraPessoa setPessoa={setPessoa} disabledButton={pessoa}/>
       {/* {!pessoa && <button onClick={cadastraPessoa}>Cadastrar</button>} */}
      {pessoa
         ? <><CardImc key="p3" pessoa={pessoa} /></>
