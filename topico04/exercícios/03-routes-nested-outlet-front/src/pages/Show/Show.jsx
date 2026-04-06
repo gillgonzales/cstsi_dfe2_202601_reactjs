@@ -3,6 +3,7 @@ import { Cards } from "../../components/Cards/Cards";
 import { Link, useNavigate, useParams } from "react-router";
 import mockedProducts from "../../mocks/mockedProducts.json";
 import "./show.css";
+import Button from "../../components/Button/Button";
 
 const Show = () => {
 
@@ -11,13 +12,13 @@ const Show = () => {
     const navigate = useNavigate();
 
 
-    console.log("id", Number(id),id,+id)
+    console.log("id", Number(id), id, +id)
 
     useEffect(() => {
         setTimeout(() => {
             let [produto] = mockedProducts.filter(produto => produto.id === +id);
             // !produto && navigate('/notfound')
-            if(!produto) 
+            if (!produto)
                 navigate('/notfound')
             setData(produto)
         }, 1000)
@@ -35,7 +36,9 @@ const Show = () => {
                     : <p>Carregando...</p>
                 }
             </div>
-            <Link to="/">Voltar</Link>
+            <Link to="/">
+                <Button>Voltar</Button>
+            </Link>
         </div>
     );
 };

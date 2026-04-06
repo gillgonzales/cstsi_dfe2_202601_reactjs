@@ -3,6 +3,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState, useRef  } from "react"
 import "./searchBar.css"
+import Button from "../Button/Button"
 
 const SearchBar = ({filterFunction, disabled}) => {
 
@@ -51,7 +52,7 @@ const SearchBar = ({filterFunction, disabled}) => {
             // onChange={(e)=>setsearchInputState(e.target.value)}
         
             />
-        <button
+        {/* <button
             onClick={() => {
                 //useRef
                 filterFunction(searchInputRef.current.value)
@@ -60,7 +61,10 @@ const SearchBar = ({filterFunction, disabled}) => {
                 // filterFunction(searchInputState)
 
             }}
-        > Pesquisar</button>
+        > Pesquisar</button> */}
+        <Button onClickFun={()=>filterFunction(searchInputRef.current.value)}>
+            Pesquisar
+        </Button>
     </div>
   )
 }
