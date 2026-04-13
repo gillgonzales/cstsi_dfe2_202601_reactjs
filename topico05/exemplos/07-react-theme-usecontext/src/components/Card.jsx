@@ -3,13 +3,13 @@ import { useContext } from 'react';
 import { ThemeContext } from '../App';
 
 export function Card({ count, setCount }) {
-  const theme = useContext(ThemeContext);
+  const {theme, toggleTheme} = useContext(ThemeContext);
   return (
     <div className={`card ${theme}`}>
       <button onClick={() => setCount((count) => count + 1)}>
         count is {count}
       </button>
-      <button onClick={() =>{console.log('toggleTheme')}}>
+      <button onClick={toggleTheme}>
         {theme}
       </button>
       <p>

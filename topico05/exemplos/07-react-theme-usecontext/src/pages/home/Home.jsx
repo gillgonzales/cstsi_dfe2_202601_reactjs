@@ -5,7 +5,7 @@ import { ThemeContext } from '../../App';
 import ContainerMain from '../../components/ContainerMain';
 
 export function Home({ count, setCount }) {
-  const theme = useContext(ThemeContext);
+  const {theme} = useContext(ThemeContext);
   console.log(theme);
 
   return (

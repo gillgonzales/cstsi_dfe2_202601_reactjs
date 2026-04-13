@@ -8,11 +8,13 @@ export const ThemeContext = createContext('');
 
 function App() {
   const [count, setCount] = useState(0);
-  const [theme] = useState('light');
+  const [theme,setTheme] = useState('light');
+
+  const toggleTheme = ()=>setTheme(theme==='light' ? 'dark':'light');
 
   return (
     <>
-      <ThemeContext.Provider value={theme}>
+      <ThemeContext.Provider value={{theme, toggleTheme}}>
         <Home setCount={setCount} count={count} />
       </ThemeContext.Provider>
     </>
