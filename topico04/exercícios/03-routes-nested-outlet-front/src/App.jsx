@@ -1,6 +1,6 @@
 
-import { RouterProvider } from 'react-router'
-import { AppRoutes, router } from './config/routes'
+// import { RouterProvider } from 'react-router'
+import { AppRoutes } from './routes/AppRoutes'
 import './styles/main.css'
 
 function App() {
