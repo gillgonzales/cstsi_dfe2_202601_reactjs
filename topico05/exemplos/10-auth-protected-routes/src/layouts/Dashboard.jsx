@@ -17,7 +17,8 @@ const DashboardLayout = () => {
     };
 
     return (
-        <>
+     <>
+        <div className="dashboard__container_grid">
             <header className='dashboard__header'>
                 <div className="logo">
                     <Link to="/">
@@ -32,7 +33,7 @@ const DashboardLayout = () => {
                     </a>
                 </div>
             </header>
-            <main>
+            {/* <main> */}
                 <aside>
                     <Link to="/dashboard">Admin</Link>
                     <Link to="produtos">Produto</Link>
@@ -41,8 +42,9 @@ const DashboardLayout = () => {
                 <section>
                    <Outlet />
                 </section>
-            </main>
-        </>
+            {/* </main> */}
+        </div>
+    </>
     )
 }
 
