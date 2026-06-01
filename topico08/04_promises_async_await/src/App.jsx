@@ -48,10 +48,16 @@ function App() {
       <input type='text' ref={inputName} placeholder='Seu nome!!'/>
       <hr/>
         <button
-          // disabled={qtdCafeDisponivel<=0?'disabled':''} 
+          disabled={qtdCafeDisponivel<=0?'disabled':''} 
           onClick={() => solicitaCafe()} >
           Pedir um Café!!!
         </button>
+         {
+          qtdCafeDisponivel<=0 &&
+            <button onClick={() => console.log("Deve aumentar a qtd de cafe")} >
+                Comprar mais grãos!!!
+           </button>
+        }
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
