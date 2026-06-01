@@ -54,8 +54,12 @@ function App() {
         </button>
          {
           qtdCafeDisponivel<=0 &&
-            <button onClick={() => console.log("Deve aumentar a qtd de cafe")} >
-                Comprar mais grãos!!!
+            <button onClick={() => {
+              console.log("Deve aumentar a qtd de cafe")
+              //repor o estoque de café com promise
+              setQtdCafeDisponivel(3);
+              }} >
+                  Comprar mais grãos!!!
            </button>
         }
         <p>
