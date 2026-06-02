@@ -28,7 +28,7 @@ const Home = () => {
 
   return (
     <div>
-      <div className="w-full 2xl:max-w-screen-xl">
+      <div className="w-full 2xl:max-w-7xl">
         <div className="mx-auto grid h-fit min-h-80 gap-x-8 gap-y-5 sm:w-fit sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 2xl:gap-8">
           <Suspense fallback={<p>Carregando...</p>}>
             <Produtos produtosPromise={promiseProdutos} />
