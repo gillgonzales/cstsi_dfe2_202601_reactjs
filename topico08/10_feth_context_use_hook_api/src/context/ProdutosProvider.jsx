@@ -3,7 +3,7 @@ import { createContext, useState } from 'react'
 import { fetchProdutosApi } from '../libs/fetchApiData';
 import { useContext } from 'react';
 
-export const ProdutosContext = createContext(undefined)
+export const ProdutosContext = createContext({})
 
 const ProdutosProvider = ({ children }) => {
 
@@ -11,6 +11,7 @@ const ProdutosProvider = ({ children }) => {
 
     const contextValue = {
         loadProdutos: () => loadProdutos(),
+        findProduto: (id)=>findProduto(id),
         get: () => data,
         set: (data) => setData(data),
         update: (id, data) => editProduto(id, data),
@@ -22,6 +23,12 @@ const ProdutosProvider = ({ children }) => {
         const produtos = await fetchProdutosApi()
         setData(produtos)
         return produtos;
+    }
+
+     const findProduto = async (id) => {
+        console.log('find',id)
+        const produto = await fetchProdutosApi(id)
+        return produto;
     }
 
     const editProduto = (id, data) => {

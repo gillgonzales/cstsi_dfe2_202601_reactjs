@@ -1,8 +1,8 @@
+import { AppRoutes } from './routes/AppRoutes'
 import './styles/Main.css'
-import Guest from './layouts/Guest'
 
 function App() {
-  return <Guest/>
+  return <AppRoutes/>
 }
 
 export default App
