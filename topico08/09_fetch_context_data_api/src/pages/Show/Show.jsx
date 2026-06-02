@@ -5,12 +5,11 @@ import { ProdutosContext } from "../../contexts/ProdutosProvider";
 import { Link, useParams } from "react-router-dom";
 
 const Show = () => {
-    const { data, loadProdutos, setIsLoaded } = useContext(ProdutosContext)
+    const { data, loadProdutos} = useContext(ProdutosContext)
     const { id } = useParams()
 
     useEffect(() => {
        loadProdutos(id)
-       return ()=>setIsLoaded(false)
     }, [])
 
     return (
