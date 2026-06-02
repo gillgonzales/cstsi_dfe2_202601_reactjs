@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useState } from 'react'
-import { fetchProdutosApi } from '../libs/fetchApiData';
+import { fetchProdutosApi } from '../services/fetchApiData';
 import { useContext } from 'react';
 
 export const ProdutosContext = createContext({})
@@ -12,6 +12,7 @@ const ProdutosProvider = ({ children }) => {
     const contextValue = {
         loadProdutos: () => loadProdutos(),
         findProduto: (id)=>findProduto(id),
+        freshProdutos: ()=>freshProdutos(),
         get: () => data,
         set: (data) => setData(data),
         update: (id, data) => editProduto(id, data),
@@ -25,10 +26,16 @@ const ProdutosProvider = ({ children }) => {
         return produtos;
     }
 
-     const findProduto = async (id) => {
+    const findProduto = async (id) => {
         console.log('find',id)
         const produto = await fetchProdutosApi(id)
         return produto;
+    }
+
+    const freshProdutos = async (id)=>{
+        const produtos = await fetchProdutosApi()
+        setData(produtos)
+        return produtos;
     }
 
     const editProduto = (id, data) => {
@@ -47,4 +54,5 @@ const ProdutosProvider = ({ children }) => {
 }
 
 export const useProdutosContext = () => useContext(ProdutosContext);
+
 export default ProdutosProvider;
