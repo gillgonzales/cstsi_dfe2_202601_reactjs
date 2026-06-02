@@ -14,13 +14,15 @@ const ProdutosGrid = ({ produtosList }) => {
 }
 
 const Home = () => {
-  const { loadProdutos, get } = useProdutosContext()
+  const { loadProdutos, get, freshProdutos } = useProdutosContext()
   const loadProdutosPromise = loadProdutos()
   return (
     <div>
       <div className="w-full 2xl:max-w-7xl">
         <Suspense fallback={<p>Carregando...</p>}>
           <p>Total de Produtos: {get()?.length}</p>
+          <button onClick={()=>freshProdutos()}
+            className='btn'>refresh</button>
           <ProdutosGrid produtosList={loadProdutosPromise} />
         </Suspense>
       </div>
