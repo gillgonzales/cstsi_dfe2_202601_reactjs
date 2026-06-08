@@ -62,20 +62,43 @@ export const DefaultStyled = styled.div`
   }
 
   aside {
-    /* width: 240px; */
+    height: 50px;
     width: 100%;
     background-color: var(--dark-green);
     padding: 1rem;
     /* border: 2px solid green; */
     border-radius: 0 0 20% 20%/ 0 0 5% 5%;
   }
+  aside > a{
+    color: var(--dark-green);
+    display: none;
+    visibility: hidden;
+  }
 
-  aside > a {
+  aside > a:last-child {
+    display: block;
+    visibility: visible;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  aside:hover > a {
     display: block;
     padding: 0.75rem 1rem;
     border-radius: 6px;
     color: var(--main-bg-color);
     text-decoration: none;
+    visibility: visible;
+  }
+
+  aside:hover{
+    height: auto;
+  }
+
+  aside:hover > a:last-child {
+      display: none;
+      visibility: hidden;
   }
 
   aside > a:hover {
@@ -88,8 +111,35 @@ export const DefaultStyled = styled.div`
     }
 
     & aside {
-      width: 240px;
+      min-width: 200px;
+      width: 200px;
       border-radius: 0 0 20% 0/ 0 0 5% 0;
+      height: 100vh;
     }
+
+    aside > a{
+      color: var(--dark-green);
+      display: block;
+      visibility: visible;
+    }
+
+   aside > a:last-child {
+      display: none;
+      visibility: hidden;
+    }
+
+
+   aside > a{
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    color: var(--main-bg-color);
+    text-decoration: none;
+   }
+
+    aside:hover{
+      height: 100vh;
+    }
+
   }
 `;

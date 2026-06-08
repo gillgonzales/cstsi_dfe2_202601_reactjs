@@ -48,6 +48,7 @@ export default function DashLayout() {
             <Link to="/users">Users</Link>
             <Link to="/cadastro">Novo User</Link>
             <Link to="/fornecedores">Gerenciar Fornecedores</Link>
+            <Link to="#">Menu</Link>
           </aside>
           <section>
             <Outlet />
