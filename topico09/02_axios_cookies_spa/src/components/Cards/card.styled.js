@@ -2,10 +2,8 @@
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
-  margin-left: auto;
-  margin-right: auto;
+  width:100%; 
   aspect-ratio: 3/4;
-  width: 91.666667%;
   height: 100%;
   border-radius: 0.5rem /* 8px */;
   border: 2px solid #1d4ed8;
@@ -21,7 +19,7 @@ export const CardContainer = styled.div`
   }
 
   @media (min-width: 768px) {
-      height: 20rem /* 320px */;
+      /* height: 20rem 320px; */
       overflow: hidden;
   }
 `;
@@ -53,7 +51,7 @@ export const CardMain = styled.div`
 
   p {
     display: block;
-    width: 100%;
+    width: 90%;
     padding: 5px 10px;
     font-size: 3vw;
     overflow: hidden;

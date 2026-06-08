@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const ShowMainContent = styled.div`
+  /* border: solid violet 4px; */
   width: 100;
   @media (min-width: 1536px) {
     max-width: 1280px;
@@ -11,11 +12,13 @@ export const ShowContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   display: grid;
-  height: fit-content;
+  height: 95%;
   min-height: 20rem /* 320px */;
   column-gap: 2rem /* 32px */;
   row-gap: 1.25rem /* 20px */;
   width: 70vw;
+  /* border: solid 5px red; */
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 
   @media (min-width: 640px) {
     width: 50vw;
