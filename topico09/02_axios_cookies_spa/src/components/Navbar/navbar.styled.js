@@ -19,7 +19,7 @@ export const NavLogo = styled.div`
 `;
 
 export const NavLinks = styled.div`
-display: flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
     width: 75%;
@@ -34,6 +34,10 @@ display: flex;
 
     a:hover{
         color:whitesmoke
+    }
+
+    @media (min-width: 450px) {
+        width: 30%;
     }
 
     @media (min-width: 640px) {
