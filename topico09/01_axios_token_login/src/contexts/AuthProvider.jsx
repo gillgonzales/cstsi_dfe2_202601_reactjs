@@ -64,7 +64,6 @@ export const AuthProvider = ({ children }) => {
         const response =
         await axiosClient.post("/token/login", payload);
         const { data } = response;
-        alert("Usuário logado");
         console.log('user', data.data)
         setToken(data.token);
         setUser(data.data);
