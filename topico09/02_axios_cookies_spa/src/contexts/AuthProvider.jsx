@@ -10,14 +10,26 @@ console.error(VEIRIFY_USER_INTERVAL)
 const verifyUser = async () => {
     try {
         const { data } = await axiosClient.get('/user')
-        if (!data) throw new Error("Erro ao recuperar usuário!"); 7
+        if (!data) throw new Error("Erro ao recuperar usuário!")
         console.log({ data })
         return data;
     } catch (error) {
-        const { response } = error;
-        response?.status === 401 && clearAuthStorages();
-        console.error('Error:', error);
+        const { response } = error
+        response?.status === 401 && clearAuthStorages()
+        console.error('Error:', error)
         throw error;
+    }
+}
+
+const verifyLocalStorage = () => {
+    try {
+        const localStoragteUser = JSON.parse(localStorage.getItem('CURRENT_USER'));
+        if (localStoragteUser?.name) return localStoragteUser
+        return false
+    } catch (error) {
+        console.error(error)
+        localStorage.removeItem('CURRENT_USER')
+        return false
     }
 }
 
@@ -31,40 +43,46 @@ const AuthContext = createContext({})
 
 export const AuthProvider = ({ children }) => {
 
-    const [user, _setUser] = useState(() =>{
+    const [user, _setUser] = useState(null)
 
-    // const user = JSON.parse(localStorage.getItem('CURRENT_USER'));
-    // if(!user)
-    return verifyUser().then(user=>{
-        localStorage.setItem('CURRENT_USER',user)
-        user && setIsLogged(true)
-        return user;
+    const [isLogged, setIsLogged] = useState(() => {
+        if (verifyLocalStorage())
+            return verifyUser()
+                .then(user => {
+                    setUser(user)
+                    setIsLogged(true)
+                }).catch(error => {
+                    console.error(error)
+                    setIsLogged(false)
+                })
+        return false;
     })
-    .catch(error=>{
-        console.error(error)
-        return null
-    })
-})
-    const [isLogged, setIsLogged] = useState(false)
 
     const intervalLogin = useRef(null);
 
     const setUser = (user) => {
-        user && localStorage.setItem('CURRENT_USER', JSON.stringify(user))
-        !user && clearAuthStorages();
+        if(user){
+            const {name, email} = user
+            localStorage.setItem('CURRENT_USER', JSON.stringify({name,email}))
+        }else clearAuthStorages();
         _setUser(user)
     }
 
     const auth = async (credentials) => {
-        const csrfUrl = import.meta.env.VITE_API_HOST + `/sanctum/csrf-cookie`
-        console.log({ csrfUrl })
-        await axiosClient.get(csrfUrl)
-        const response = await axiosClient.post("/login", credentials);
-        if (response?.status !== 200) throw new Error(response.data);
-        const { data } = response;
-        console.log({ data });
-        setUser(data.data);
-        setIsLogged(true);
+        try {
+            const csrfUrl = import.meta.env.VITE_API_HOST + `/sanctum/csrf-cookie`
+            console.log({ csrfUrl })
+            await axiosClient.get(csrfUrl)
+            const response = await axiosClient.post("/login", credentials);
+            if (response?.status !== 200) throw new Error(response.data);
+            const { data } = response;
+            console.log({ data });
+            setUser(data.data);
+            setIsLogged(true);
+        } catch (error) {
+            setIsLogged(false)
+            throw error
+        }
     }
 
     const verifyLogin = async () => {
@@ -74,6 +92,7 @@ export const AuthProvider = ({ children }) => {
             return true;
         } catch (error) {
             setUser(null)
+            setIsLogged(false)
             console.error(error)
             return false;
         }
@@ -87,24 +106,13 @@ export const AuthProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        async function fetchUser() {
-            try {
-                const user = await verifyUser();
-                setUser(user)
-            } catch (error) {
-                console.error(error);
-            }
-        }
-        fetchUser()
-    }, []);
-
-    useEffect(() => {
         console.log(user)
         if (user) {
             intervalLogin.current = setInterval(async () => {
                 console.log("Verificando login...");
                 console.log(user)
-                const { isLogged } = await verifyLogin();
+                const isLogged = await verifyLogin();
+                setIsLogged(isLogged);
                 !isLogged && clearAuthStorages();
             }, VEIRIFY_USER_INTERVAL)
         }
@@ -119,8 +127,6 @@ export const AuthProvider = ({ children }) => {
             user,
             isLogged,
             auth,
-            setUser,
-            verifyLogin,
             logOut,
         }}>
             {children}
