@@ -4,7 +4,7 @@ import { useAuthContext } from "../../contexts/AuthProvider";
 import { NavContainer, NavLinks, NavLogo } from "./navbar.styled";
 
 export const Navbar = () => {
-  const { user, logOut } = useAuthContext();
+  const { isLogged, logOut } = useAuthContext();
 
   return (
     <NavContainer>
@@ -14,7 +14,7 @@ export const Navbar = () => {
         </Link>
       </NavLogo>
       <NavLinks>
-        {user?.name ? (
+        {isLogged ? (
           <>
             <Link to="/dashboard">Dashboard</Link>
             <Link to="#" onClick={()=>logOut()}>Log out</Link>
