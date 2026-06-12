@@ -13,7 +13,6 @@ axiosClient.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 axiosClient.interceptors.request.use((config) => {
     config.headers.Accept = "application/json";
-    config.headers["Access-Control-Allow-Credentials"] = true;
     return config;
 });
 
