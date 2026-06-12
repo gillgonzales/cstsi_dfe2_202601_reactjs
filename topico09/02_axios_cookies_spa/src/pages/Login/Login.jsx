@@ -6,10 +6,9 @@ import { LoginStyled } from "./login.styled";
 
 export default function Login() {
   const { auth, isLogged } = useAuthContext();
-
-
-    const [isError, setIsError] = useState(false);
-    const [errorMessage, setErrorMessage] = useState('');
+  
+  const [isError, setIsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -35,7 +34,7 @@ export default function Login() {
   useEffect(()=>{
       isLogged && navigate('/dashboard')  
   },[isLogged])
-  
+
   return (
     <LoginStyled>
       <div className="form">
