@@ -24,6 +24,7 @@ const Cadastro = () => {
     handleEnableButton();
     setEmail(event.target.value);
     setEmailInvalid(!emailPattern.test(event.target.value));
+    if(event.target.value ==='') setEmailInvalid(false)
   };
 
   const handlePassword = (event) => {
@@ -50,7 +51,7 @@ const Cadastro = () => {
         password_confirmation: confirmPassword.current.value,
       };
       console.log({ payload });
-      const response = await axiosClient.post("/api/users", payload);
+      const response = await axiosClient.post("/users", payload);
       if (response?.status !== 201) throw new Error(response.data);
       console.log(response);
       const { data } = response;
@@ -82,6 +83,7 @@ const Cadastro = () => {
         placeholder="Email"
         name="email"
         onChange={handleEmail}
+        onBlur={handleEmail}
       />
       {emailInvalid && <pre>{`Campo Email é inválido!!!`}</pre>}
       <input
