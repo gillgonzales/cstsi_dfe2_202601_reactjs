@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { Link } from "react-router";
 import { CardContainer, CardImage, CardMain } from "./card.styled";
 import thumbImage from "../../assets/img/cards-thumbnail.jpg"
