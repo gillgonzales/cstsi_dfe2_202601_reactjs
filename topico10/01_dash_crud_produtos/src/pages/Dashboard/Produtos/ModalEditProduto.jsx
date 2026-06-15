@@ -152,7 +152,7 @@ const ModalEditProduto = ({ close, editedProduto }) => {
           <>
             <label>Fornecedor:</label>
             <select name="fornecedor_id" ref={selectedFornecedorId}
-              onChange={()=>setDisableButton(+selectedFornecedorId.current.value === editedProduto?.fornecedor_id)}
+              onChange={()=>setDisableButton(selectedFornecedorId.current.value === editedProduto?.fornecedor_id)}
             >
               {listFornecedores.map((fornecedor, i) => (
                 <option 
