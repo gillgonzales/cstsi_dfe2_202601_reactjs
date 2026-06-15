@@ -23,7 +23,7 @@ export const ModalStyled = styled.div`
   position:  absolute;
   min-width: 250px;
   width: 80%;
-  top: 5vh;
+  top: 2vh;
   height: auto;
   font-weight:bold;
   color: var(--second-color);
