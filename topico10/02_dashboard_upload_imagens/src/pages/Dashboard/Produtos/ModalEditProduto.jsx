@@ -3,7 +3,7 @@ import { useContext, useEffect, useRef, useState } from 'react'
 import Modal from '../../../components/Modal/Modal'
 import { InputCheckbox, InputFileImage, InputsNumbers } from './ModalEditProdutoForm.styles'
 import { ProdutosContext } from '../../../contexts/ProdutosProvider'
-import imageUrl from '../../../assets/img/cards-thumbnail.jpg';
+import cardThumb from '../../../assets/img/cards-thumbnail.jpg';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
@@ -119,11 +119,9 @@ const ModalEditProduto = ({ close, editedProduto }) => {
       <InputFileImage>
         <img id="image-tag"
           src={
-            editedProduto?.media.length > 0 ?
-              editedProduto?.media[0]?.source?.includes('http')
-                ? editedProduto?.media[0]
-                : editedProduto?.media[0]
-              : imageUrl
+            editedProduto?.media?.length > 0 
+              ? editedProduto?.media[0]?.source
+              : cardThumb
           }
           ref={inputImageRef}
         />
