@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { createContext, useState } from "react";
-import axiosClient from "../utils/axios-client";
+import axiosClient, { API_HOST } from "../utils/axios-client";
 
 export const ProdutosContext = createContext({
   data: null,
@@ -36,7 +36,16 @@ const ProdutosProvider = ({ children }) => {
       formDataProduto['fornecedor_id'] = 1;
       console.log(`Cadastrar novo produto:`, formDataProduto);
 
-      const { data } = await axiosClient.post(`/token/produtos/`, formDataProduto, {
+      const csrfUrl = API_HOST + `/sanctum/csrf-cookie`
+      console.log({ csrfUrl })
+      await axiosClient.get(csrfUrl, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          "Referer":API_HOST
+        }
+    })
+
+      const { data } = await axiosClient.post(`/produtos/`, formDataProduto, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
