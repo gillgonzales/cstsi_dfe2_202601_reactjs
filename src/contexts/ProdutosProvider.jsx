@@ -36,15 +36,6 @@ const ProdutosProvider = ({ children }) => {
       formDataProduto['fornecedor_id'] = 1;
       console.log(`Cadastrar novo produto:`, formDataProduto);
 
-      const csrfUrl = API_HOST + `/sanctum/csrf-cookie`
-      console.log({ csrfUrl })
-      await axiosClient.get(csrfUrl, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          "Referer":API_HOST
-        }
-    })
-
       const { data } = await axiosClient.post(`/produtos`, formDataProduto, {
         headers: {
           "Content-Type": "multipart/form-data",
