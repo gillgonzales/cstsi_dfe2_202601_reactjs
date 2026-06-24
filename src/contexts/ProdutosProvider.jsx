@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { createContext, useState } from "react";
-import axiosClient, { API_HOST } from "../utils/axios-client";
+import axiosClient from "../utils/axios-client";
 
 export const ProdutosContext = createContext({
   data: null,
@@ -36,7 +36,7 @@ const ProdutosProvider = ({ children }) => {
       formDataProduto['fornecedor_id'] = 1;
       console.log(`Cadastrar novo produto:`, formDataProduto);
 
-      const { data } = await axiosClient.post(`/produtos`, formDataProduto, {
+      const { data } = await axiosClient.post(`/token/produtos`, formDataProduto, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
