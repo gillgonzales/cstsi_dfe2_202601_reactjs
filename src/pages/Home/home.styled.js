@@ -17,7 +17,7 @@ export const HomeGridContainer = styled.div`
   column-gap: 2rem /* 32px */;
   row-gap: 1.25rem /* 20px */;
   @media (min-width: 640px) {
-    width: fit-content;
+    /* width: fit-content; */
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
