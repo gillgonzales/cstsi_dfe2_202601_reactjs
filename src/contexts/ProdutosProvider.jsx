@@ -36,7 +36,7 @@ const ProdutosProvider = ({ children }) => {
       formDataProduto['fornecedor_id'] = 1;
       console.log(`Cadastrar novo produto:`, formDataProduto);
 
-      const { data } = await axiosClient.post(`/tokens/produtos/`, formDataProduto, {
+      const { data } = await axiosClient.post(`/token/produtos/`, formDataProduto, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
