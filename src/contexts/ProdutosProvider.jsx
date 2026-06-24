@@ -45,7 +45,7 @@ const ProdutosProvider = ({ children }) => {
         }
     })
 
-      const { data } = await axiosClient.post(`/produtos/`, formDataProduto, {
+      const { data } = await axiosClient.post(`/produtos`, formDataProduto, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
